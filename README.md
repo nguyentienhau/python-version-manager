@@ -1,38 +1,29 @@
-# Basic Commands
+# Python Version Manager
+
+## Basic Commands
 
     pvm version
+    pvm current
     pvm commands
+    pvm help
     pvm on
     pvm off
-    pvm install [version]
-    pvm uninstall [version]
+    pvm list [available]
     pvm global [version]
     pvm local [version]
-    pvm list [available]
-    pvm current
+    pvm install [version]
+    pvm uninstall [version]
 
-# Path Setup
+## Add Environment Variables
 
-    List python versions available save in file
-    	C:\Users\Admin\Programs\Python Version Manager\list-available.xml
-    Python Version Manager version save in file
-    	C:\Users\Admin\Programs\Python Version Manager\version
-    All python versions save in folder
-    	C:\Users\Admin\Programs\Python Version Manager\versions\
-    Current python version save in file
-    	C:\Users\Admin\Programs\Python Version Manager\current
+    PVM_HOME		C:\Users\Admin\Programs\Python Version Manager
+    PVM_CURRENT		3.9.13
 
-# Add Environment Variables
-
-    PVM_HOME	C:\Users\Admin\Programs\Python Version Manager\
-    PVM_CURRENT	C:\Users\Admin\Programs\Python Version Manager\versions\[current]
-
-# Add Path
+## Add Paths
 
     %PVM_HOME%
-    %PVM_CURRENT%
-    %PVM_CURRENT%\Scripts
+    %PVM_HOME%/versions/%PVM_CURRENT%
 
-# References
+## References
 
     pyenv
