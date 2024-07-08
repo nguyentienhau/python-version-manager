@@ -21,7 +21,7 @@ echo     duplicate  Creates a duplicate python environment
 echo     latest     Print the latest installed or known version with the given prefix
 echo     shell      Set or show the shell-specific Python version
 echo     update     Update the cached version DB
-echo     rehash     Rehash pvm shims (run this after installing executables)
+echo     rehash     Rehash pvm shims. It runs after installing executables
 echo     exec       Runs an executable by first preparing PATH so that the selected Python
 echo     which      Display the full path to an executable
 echo     whence     List all Python versions that contain the given executable

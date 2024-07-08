@@ -4,22 +4,25 @@ setlocal
 if "%1" == "--help" (
 	echo Usage: pyenv current
 	echo.
-	echo Shows the currently selected Python version and how it was selected.
+	echo Shows the currently selected Python version and how it was selected
 	exit /b
 )
 
-set default="%~dp0..\current"
+set home_path=%~dp0..
 
 if "%PVM_HOME%" == "" (
-	echo PVM_HOME variable is not set, recommended to set the variable.
+	echo PVM_HOME environment variable is not set
 ) else (
-	set path="%PVM_HOME%\current"
-
-	if exist %path% (
-    	set default=%path%
-	)
+	set home_path=%PVM_HOME%
 )
 
-for /f %%v in ('type %default%') do set version=%%v
+set current_file_path=%home_path%\current.txt
 
-echo Python %version% (set by %default%)
+for /f %%v in ('type %current_file_path%') do set version=%%v
+
+if "%version%" == "" (
+	echo The global Python version is not set
+	echo Use "pvm global <version>" command to set the global Python version
+) else (
+	echo Python %version% ^(set by %current_file_path%^)
+)
