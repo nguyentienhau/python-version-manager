@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-if "%1" == "--help" (
+if "%2" == "--help" (
 	echo Usage: pvm global ^<version^>
 	echo.
 	echo Sets the global Python version
@@ -9,20 +9,12 @@ if "%1" == "--help" (
 	exit /b
 )
 
-set home_path=%~dp0..
-
-if "%PVM_HOME%" == "" (
-	echo PVM_HOME environment variable is not set
-) else (
-	set home_path=%PVM_HOME%
-)
-
-set version_path=%home_path%\versions\%1
+set version_path=%1\versions\%2
 
 if exist %version_path% (
 	setx PVM_CURRENT %version_path%
-	echo %1 > %home_path%\current.txt
-	echo Now using Python %1
+	echo %2 > %1\current.txt
+	echo Now using Python %2
 ) else (
-	echo Python %1 is not found
+	echo Python %2 was not found
 )

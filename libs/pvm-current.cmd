@@ -1,23 +1,14 @@
 @echo off
 setlocal
 
-if "%1" == "--help" (
+if "%2" == "--help" (
 	echo Usage: pyenv current
 	echo.
 	echo Shows the currently selected Python version and how it was selected
 	exit /b
 )
 
-set home_path=%~dp0..
-
-if "%PVM_HOME%" == "" (
-	echo PVM_HOME environment variable is not set
-) else (
-	set home_path=%PVM_HOME%
-)
-
-set current_file_path=%home_path%\current.txt
-
+set current_file_path=%1\current.txt
 for /f %%v in ('type %current_file_path%') do set version=%%v
 
 if "%version%" == "" (

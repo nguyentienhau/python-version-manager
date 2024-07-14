@@ -17,12 +17,20 @@ exit /b
 set exec=%~dp0.\libs\pvm-%1
 call :normalizepath %exec% exec
 
-if exist %exec%.cmd (
-	call %exec%.cmd %2
-) else if exist %exec%.bat (
-	call %exec%.bat %2
+set home_path=%~dp0.
+
+if "%PVM_HOME%" == "" (
+	echo PVM_HOME environment variable is not set
 ) else (
-	echo pvm: no such command "%1"
+	set home_path=%PVM_HOME%
+)
+
+if exist %exec%.cmd (
+	call %exec%.cmd %home_path% %2
+) else if exist %exec%.bat (
+	call %exec%.bat %home_path% %2
+) else (
+	echo Python Version Manager do not have "%1" command
 )
 
 goto :eof
